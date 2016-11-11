@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pry-byebug')
 require_relative('../guest')
 require_relative('../room')
 require_relative('../songs')
@@ -9,6 +10,7 @@ class TestKaraoke < Minitest::Test
 
   def setup
       @karaoke = Karaoke.new('Caraoke','1 Queen Street' ,3 ,10)
+      @customer = Customer.new('Federico','rock',10)
     end
 
     def test_karaoke_name()
@@ -27,5 +29,11 @@ class TestKaraoke < Minitest::Test
     def test_karaoke_entry_fee()
       assert_equal(@karaoke.entry_fee,10)
     end
- 
+  
+    def test_enought_money
+        # binding.pry
+      result = @karaoke.enought_money(@customer)
+
+    assert_equal("You can have access", result)
+    end
   end
