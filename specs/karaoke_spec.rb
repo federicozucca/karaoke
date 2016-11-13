@@ -1,7 +1,7 @@
 require('minitest/autorun')
 require('minitest/rg')
 require('pry-byebug')
-require_relative('../guest')
+require_relative('../customer')
 require_relative('../room')
 require_relative('../songs')
 require_relative('../karaoke')
@@ -36,4 +36,5 @@ class TestKaraoke < Minitest::Test
 
     assert_equal("You can have access", result)
     end
+
   end
